@@ -11,10 +11,9 @@ st.markdown("Automated Markdown & Inventory Reallocation Interface | **Status:**
 
 @st.cache_data
 def load_data():
-    df = pd.read_pickle('data/processed_pricing_data.pkl')
-    df = df.replace([np.inf, -np.inf], np.nan)
-    df = df[df['store_id'] == 'CA_1'].dropna(subset=['sell_price', 'sales']).sample(50000, random_state=42)
-    df['sell_price'] = df['sell_price'].astype('float32')
+    # Load the pre-filtered lightweight sample
+    df = pd.read_pickle('data/dashboard_sample.pkl')
+    
     # Generate mock margin baseline for UI demonstration purposes
     df['margin_pct'] = np.random.uniform(0.12, 0.45, size=len(df)) 
     return df
