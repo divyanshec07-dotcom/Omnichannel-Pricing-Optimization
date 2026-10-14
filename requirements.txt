@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+plotly
+scikit-learn
+streamlit
+pandas
+numpy
+plotly
+scikit-learn
